@@ -1,3 +1,6 @@
+
+//遇到重复请求的问题，用piana
+
 import { ref} from 'vue'
 import { getCategoryAPI } from '@/apis/layout'
 import { defineStore } from 'pinia'
