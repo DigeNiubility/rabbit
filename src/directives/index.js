@@ -5,12 +5,12 @@ export const lazyPlugin={
         app.directive('img-lazy',{
             mounted(el,binding){
         
-                console.log(el,binding.value);
+             
                const {stop} =useIntersectionObserver(
                     el,
                     ([{ isIntersecting }]) => {
                       //进入视口区
-                    console.log(isIntersecting);
+                    
                      if (isIntersecting) {
                         el.src=binding.value
                         stop()

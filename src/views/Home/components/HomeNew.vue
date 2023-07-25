@@ -6,8 +6,7 @@ const newList=ref([])
 const getNewList= async ()=>{
    const res=await findNewAPI()
    newList.value=res.reslut
-   console.log(res);
-   console.log(newList.value);
+   
 }
 onMounted(() => {
   getNewList()  
@@ -56,7 +55,7 @@ const list=[
     <ul class="goods-list">
     <li v-for="item in list" :key="item.id">
       <RouterLink to="/">
-        <img :src="item.picture" alt="" />
+        <img v-img-lazy="item.picture" alt="" />
         <p class="name">{{ item.name }}</p>
         <p class="price">&yen;{{ item.price }}</p>
       </RouterLink>
