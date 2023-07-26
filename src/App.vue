@@ -4,10 +4,6 @@
 
 <template>
     <RouterView />
-    <el-button type="primary" disabled>Primary</el-button>
-    <div class="test">
-      test scss
-    </div>
 </template>
 
 <style scoped lang="scss">
