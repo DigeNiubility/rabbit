@@ -18,10 +18,10 @@ export const useCartStore =defineStore('cart',()=>{
     }
     //计算属性
     //1.数量和总价
-    computed(()=>{
-     const allCount= cartList.value.reduce((a,c)=>a+c.count,0)
-     const allPrice= cartList.value.reduce((a,c)=>a+c.count*c.price,0)
-    })
+    
+     const allCount= computed(()=>cartList.value.reduce((a,c)=>a+c.count,0))
+     const allPrice= computed(()=>cartList.value.reduce((a,c)=>a+c.count*c.price,0))
+   
     return{
         cartList,
         addCart,
