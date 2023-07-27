@@ -1,11 +1,17 @@
 <script setup>
 import {ref} from 'vue';  
+import { ElMessage } from 'element-plus'
+import 'element-plus/theme-chalk/el-message.css'
+import { useRouter } from 'vue-router'
+
+import {useUserStore} from '@/stores/user';
+const userStore=useUserStore()
 const form=ref({
-  account:'',
-  password:'',
+  account:'xiaotuxian001',
+  password:'123456',
   agree:true
 })
-
+const router = useRouter()
 //规则对象
 const rules={
   account:[
@@ -30,10 +36,14 @@ const rules={
 
 const formRef=ref(null)
 const doLogin=()=>{
-  formRef.value.validate((valid)=>{
+  const {account,password}=form.value
+  formRef.value.validate(async(valid)=>{
     console.log(valid);
     if(valid){
       //TODO LOGIN
+    await userStore.getUserInfo({account,password})
+    ElMessage({type:'success',message:'登陆成功'})
+    router.replace({ path: '/' })
     }
   })
 }
