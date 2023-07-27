@@ -4,6 +4,7 @@ import {ref,onMounted} from 'vue';
 import { useRoute } from 'vue-router';
 import DetailHot from '@/views/Detail/components/DetailHot.vue';
 import ImgView from '@/components/ImgView/index.vue'
+import XtxSku from '@/components/XtxSku/index.vue'
 const goods=ref({})
 const route =useRoute()
 const getGoods=async()=>{
@@ -13,7 +14,9 @@ const getGoods=async()=>{
 onMounted(() => {
     getGoods()
 })
-
+const skuChange=(sku)=>{
+  console.log(sku);
+}
 </script>
 
 <template>
@@ -84,7 +87,7 @@ onMounted(() => {
                 </dl>
               </div>
               <!-- sku组件 -->
-
+              <XtxSku :goods="goods" @change="skuChange"></XtxSku>
               <!-- 数据组件 -->
 
               <!-- 按钮组件 -->
