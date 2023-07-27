@@ -7,3 +7,14 @@ export function getDetail(id) {
         }
     })
 }
+
+export const fetchHotGoodsAPI = ({ id, type, limit = 3 }) => {
+    return request({
+      url:'/goods/hot',
+      params:{
+        id, 
+        type, 
+        limit
+      }
+    })
+  }
