@@ -31,9 +31,13 @@ export const useCartStore =defineStore('cart',()=>{
       }else{
         const idx=  cartList.value.findIndex((item)=>skuId===skuId)
         cartList.value.splice(idx,1)
-      }
-      
+      } 
     }
+
+    const clearCart=()=>{
+      cartList.value=[]
+    }
+
     const singleCheck=(skuId,selected)=>{
       const item=  cartList.value.find((item)=>item.skuId===skuId)
       item.selected=selected
@@ -65,7 +69,9 @@ export const useCartStore =defineStore('cart',()=>{
         isAll,
         allCheck,
         selectedPrice,
-        selectedCount
+        selectedCount,
+        clearCart,
+        updateNewList
 
     }
 }, {
